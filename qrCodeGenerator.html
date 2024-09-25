@@ -229,9 +229,12 @@ max-height: 100%;
             var gapi="https://quickchart.io/qr?size=";
             var myimg=document.getElementById("img");
             var mytext=document.getElementById("qrtext").value;
+            var mytype=document.getElementById("typo").value;
             var mysize=document.getElementById("size").value;
 
-            if (mytext!=="" && mysize=="100")
+            if(mytype == 'msg'){
+              alert(mytext);
+            }else if (mytext!=="" && mysize=="100")
             {
                 var qrURL = gapi + mysize + "&text=" + encodeURIComponent(mytext);
                 myimg.src = qrURL;
@@ -304,6 +307,12 @@ max-height: 100%;
             <option value="200">200x200</option>
             <option value="250" selected>250x250</option>
             <option value="300">300x300</option>
+        </select>
+        <br><br>
+        <select id="typo">
+          <option selected>Select type of QR</option>
+            <option value="msg">Message</option>
+            <option value="link">Link</option>
         </select>
         <br><br>
         <textarea placeholder="Enter Your Text" id="qrtext"></textarea>
